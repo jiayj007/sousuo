@@ -396,7 +396,53 @@ presets:
 
 custom:
   name: "自定义"
-  description: "完全自由定义时间段、日计划和周映射。"
+  description: "早上6点、中午12点、晚上7点各推送一次"
+
+  default:
+    collect: true
+    analyze: false
+    ai_mode: "current"
+    push: false
+    report_mode: "current"
+    once:
+      analyze: true
+      push: true
+
+  periods:
+    morning:
+      name: "早间推送"
+      start: "07:00"
+      end: "08:00"
+      push: true
+      report_mode: "daily"
+    noon:
+      name: "午间推送"
+      start: "12:00"
+      end: "13:00"
+      push: true
+      report_mode: "current"
+    evening:
+      name: "晚间推送"
+      start: "19:00"
+      end: "20:00"
+      push: true
+      report_mode: "daily"
+
+  day_plans:
+    all_day:
+      periods: ["morning", "noon", "evening"]
+
+  week_map:
+    1: "all_day"
+    2: "all_day"
+    3: "all_day"
+    4: "all_day"
+    5: "all_day"
+    6: "all_day"
+    7: "all_day"
+
+  overlap:
+    policy: "error_on_overlap"
 
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   # 默认配置
